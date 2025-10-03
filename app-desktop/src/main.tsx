@@ -1,14 +1,11 @@
-// src/main.tsx
+// app-desktop/src/main.tsx
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider, createHashRouter } from "react-router-dom";
-import Routes from "./routes"; // we'll create this file next
-import "./index.css";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
-const router = createHashRouter(Routes); // hash router = Tauri-friendly
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const el = document.getElementById("root")!;
+createRoot(el).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
