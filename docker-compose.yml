@@ -1,18 +1,13 @@
-version: "3.9"
 services:
   db:
-    image: postgres:16-alpine
+    image: postgres:16
     environment:
-      POSTGRES_USER: app
-      POSTGRES_PASSWORD: app
-      POSTGRES_DB: appdb
+      POSTGRES_DB: projectx
+      POSTGRES_USER: projectx
+      POSTGRES_PASSWORD: projectx
     ports:
-      - "55432:5432" # was 5432:5432
+      - "55432:5432" # <— changed host port
     volumes:
-      - dbdata:/var/lib/postgresql/data
-  adminer:
-    image: adminer
-    ports:
-      - "8080:8080"
+      - pgdata:/var/lib/postgresql/data
 volumes:
-  dbdata:
+  pgdata:
