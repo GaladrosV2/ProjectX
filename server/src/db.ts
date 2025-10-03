@@ -2,7 +2,7 @@ import "dotenv/config";
 import { Pool } from "pg";
 
 // Build the pool from DATABASE_URL if present; otherwise use PG* env vars.
-export const pool = new Pool(
+const pool = new Pool(
   process.env.DATABASE_URL
     ? { connectionString: process.env.DATABASE_URL }
     : {
@@ -41,7 +41,7 @@ export async function migrate() {
   `);
 }
 
-export type DbMessage = {
+type DbMessage = {
   id: string;
   author: string;
   text: string;
